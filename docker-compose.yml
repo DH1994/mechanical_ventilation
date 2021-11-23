@@ -1,0 +1,57 @@
+version: "3.9"
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    restart: unless-stopped
+#    ports:
+#       - "1883:1883"
+#       - "9001:9001"
+    volumes:
+      - "./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro"
+  hue2mqtt:
+    build:
+      dockerfile: Dockerfile
+      context: ./hue2mqtt
+    container_name: hue2mqtt-python
+    restart: unless-stopped
+    volumes:
+      - "./hue2mqtt/hue2mqtt.toml:/hue2mqtt-python/hue2mqtt.toml:ro"
+    image: hue2mqtt-python
+    links:
+      - "mosquitto:mosquitto"
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - /run/udev:/run/udev:ro
+    environment:
+      - TZ=Europe/Berlin
+    devices:
+      # Make sure this matched your adapter location
+      - /dev/ttyACM0:/dev/ttyACM0
+    links:
+      - "mosquitto:mosquitto"
+  node-red:
+    image: nodered/node-red
+    container_name: node-red
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "1880:1880"
+    links:
+      - "mosquitto:mosquitto"
+    user: 1001:1001
+    volumes:
+      - "./node-red-data:/data"
+  sensor-charts:
+    image: sensor-charts
+    container_name: sensor-charts
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "80:8080"
+    links:
+      - "node-red:node-red"
