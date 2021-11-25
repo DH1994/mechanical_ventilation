@@ -1,16 +1,16 @@
 [
     {
-        "id": "020fba9d79e1b386",
+        "id": "1f19bac8b043ee2d",
         "type": "tab",
-        "label": "sensorcharts",
+        "label": "mechanical ventilation",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "1f19bac8b043ee2d",
+        "id": "020fba9d79e1b386",
         "type": "tab",
-        "label": "mechanical ventilation",
+        "label": "sensorcharts",
         "disabled": false,
         "info": "",
         "env": []
@@ -40,6 +40,644 @@
         "willPayload": "",
         "willMsg": {},
         "sessionExpiry": ""
+    },
+    {
+        "id": "c180992cc3e8ae96",
+        "type": "mqtt out",
+        "z": "1f19bac8b043ee2d",
+        "name": "hue2mqtt/light/id/set",
+        "topic": "hue2mqtt/light/id/set",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85ef96f3bdcd5a9a",
+        "x": 1070,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "98ddcf40f7257cd6",
+        "type": "mqtt in",
+        "z": "1f19bac8b043ee2d",
+        "name": "",
+        "topic": "zigbee2mqtt/id",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "85ef96f3bdcd5a9a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 440,
+        "wires": [
+            [
+                "460db21e6e98a569"
+            ]
+        ]
+    },
+    {
+        "id": "422e34b2a4c54a5c",
+        "type": "mqtt in",
+        "z": "1f19bac8b043ee2d",
+        "name": "",
+        "topic": "zigbee2mqtt/id",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "85ef96f3bdcd5a9a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 540,
+        "wires": [
+            [
+                "47ca9ef002ba415b"
+            ]
+        ]
+    },
+    {
+        "id": "460db21e6e98a569",
+        "type": "json",
+        "z": "1f19bac8b043ee2d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "d375d04192e82f5c",
+                "27244e6825f41db8",
+                "33f865043ac8337d"
+            ]
+        ]
+    },
+    {
+        "id": "47ca9ef002ba415b",
+        "type": "json",
+        "z": "1f19bac8b043ee2d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 540,
+        "wires": [
+            [
+                "5b93e81aa1916d56",
+                "a2d85120d7dd42df",
+                "33f865043ac8337d"
+            ]
+        ]
+    },
+    {
+        "id": "383c90171fc2e5cf",
+        "type": "comment",
+        "z": "1f19bac8b043ee2d",
+        "name": "Badkamer",
+        "info": "",
+        "x": 80,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6c60d2a5812920b0",
+        "type": "comment",
+        "z": "1f19bac8b043ee2d",
+        "name": "Slaapkamer",
+        "info": "",
+        "x": 90,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "33f865043ac8337d",
+        "type": "debug",
+        "z": "1f19bac8b043ee2d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "86360124a58a4669",
+        "type": "comment",
+        "z": "1f19bac8b043ee2d",
+        "name": "Mechanische ventilatie",
+        "info": "",
+        "x": 1140,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e6222fd4bf64b0de",
+        "type": "inject",
+        "z": "1f19bac8b043ee2d",
+        "name": "inject humidity 58",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"humidity\":58.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
+        "payloadType": "str",
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "460db21e6e98a569"
+            ]
+        ]
+    },
+    {
+        "id": "69651d617b658019",
+        "type": "inject",
+        "z": "1f19bac8b043ee2d",
+        "name": "inject humidity 57",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"humidity\":57.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
+        "payloadType": "str",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "47ca9ef002ba415b"
+            ]
+        ]
+    },
+    {
+        "id": "5b93e81aa1916d56",
+        "type": "change",
+        "z": "1f19bac8b043ee2d",
+        "name": "Set flow.slaapkamer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "slaapkamer",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "057cac706f1c4a09",
+        "type": "inject",
+        "z": "1f19bac8b043ee2d",
+        "name": "inject humidity 88",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"humidity\":88.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
+        "payloadType": "str",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "460db21e6e98a569"
+            ]
+        ]
+    },
+    {
+        "id": "a2d85120d7dd42df",
+        "type": "link out",
+        "z": "1f19bac8b043ee2d",
+        "name": "slaapkamer",
+        "mode": "link",
+        "links": [
+            "081fdefc811d53b7"
+        ],
+        "x": 515,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d375d04192e82f5c",
+        "type": "link out",
+        "z": "1f19bac8b043ee2d",
+        "name": "badkamer",
+        "mode": "link",
+        "links": [
+            "eed07ac1b4e7ee5d"
+        ],
+        "x": 515,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1a77374cab65f61f",
+        "type": "inject",
+        "z": "1f19bac8b043ee2d",
+        "name": "inject humidity 68",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"humidity\":68.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
+        "payloadType": "str",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "460db21e6e98a569"
+            ]
+        ]
+    },
+    {
+        "id": "4f205687d6fa8f83",
+        "type": "inject",
+        "z": "1f19bac8b043ee2d",
+        "name": "inject humidity 78",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"humidity\":78.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
+        "payloadType": "str",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "460db21e6e98a569"
+            ]
+        ]
+    },
+    {
+        "id": "daed62f760669a4a",
+        "type": "inject",
+        "z": "1f19bac8b043ee2d",
+        "name": "inject humidity 98",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"humidity\":98.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
+        "payloadType": "str",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "460db21e6e98a569"
+            ]
+        ]
+    },
+    {
+        "id": "a286e2e1e8aa6836",
+        "type": "comment",
+        "z": "1f19bac8b043ee2d",
+        "name": "Capaciteit",
+        "info": "Voor een woonkamer moet de ventilatiecapaciteit minimaal 0,9 dm3/s per m2 vloeroppervlakte zijn, met een minimum van 7 dm3/s.\nVoor een badkamer moet de ventilatiecapaciteit minimaal 14 dm3/s zijn.\n\n7 l per per seconde woonkamer\n14 l per seconde badkamer\n\n25200 l per uur woonkamer\n25.2 m3\n\n50400 l per uur badkamer\n50,4 m3\n\nTotaal minimaal 75 m3\n\nhttps://www.ventilatieshop.com/media/ventilatieshop/downloads/pdf/technische-specificatie-zehnder-comfofan-s-hygro.pdf\n\nMax capacitieit = ongeveer 370\n\nminimaal altijd op 36 m3 \n",
+        "x": 80,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9e711b4f669d4381",
+        "type": "range",
+        "z": "1f19bac8b043ee2d",
+        "minin": "0",
+        "maxin": "100",
+        "minout": "0",
+        "maxout": "255",
+        "action": "scale",
+        "round": true,
+        "property": "payload",
+        "name": "percentage of 255",
+        "x": 1010,
+        "y": 280,
+        "wires": [
+            [
+                "47773a0c3b047779"
+            ]
+        ]
+    },
+    {
+        "id": "47773a0c3b047779",
+        "type": "template",
+        "z": "1f19bac8b043ee2d",
+        "name": "payload to {\"bri\": payload}",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"bri\": {{payload}}}",
+        "output": "json",
+        "x": 1230,
+        "y": 280,
+        "wires": [
+            [
+                "c180992cc3e8ae96"
+            ]
+        ]
+    },
+    {
+        "id": "cd9fb2206ee5355b",
+        "type": "switch",
+        "z": "1f19bac8b043ee2d",
+        "name": "humidity between values",
+        "property": "payload.humidity",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "60",
+                "vt": "num",
+                "v2": "70",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "70",
+                "vt": "num",
+                "v2": "80",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "80",
+                "vt": "num",
+                "v2": "90",
+                "v2t": "num"
+            },
+            {
+                "t": "gt",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "5704b71fbf09598b"
+            ],
+            [
+                "7362cb6b5bdd3275"
+            ],
+            [
+                "8dba1ce8edc62509"
+            ],
+            [
+                "59560e0cd85ba077"
+            ]
+        ]
+    },
+    {
+        "id": "27244e6825f41db8",
+        "type": "switch",
+        "z": "1f19bac8b043ee2d",
+        "name": "badkamer - slaapkamer < 15 or > 15",
+        "property": "slaapkamer.humidity",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "lt",
+                "v": "payload.humidity - 15",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "0d8d881b4d5c89cd"
+            ],
+            [
+                "cd9fb2206ee5355b"
+            ]
+        ]
+    },
+    {
+        "id": "5704b71fbf09598b",
+        "type": "change",
+        "z": "1f19bac8b043ee2d",
+        "name": "20%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "20",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "9e711b4f669d4381"
+            ]
+        ]
+    },
+    {
+        "id": "7362cb6b5bdd3275",
+        "type": "change",
+        "z": "1f19bac8b043ee2d",
+        "name": "40%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "40",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 280,
+        "wires": [
+            [
+                "9e711b4f669d4381"
+            ]
+        ]
+    },
+    {
+        "id": "8dba1ce8edc62509",
+        "type": "change",
+        "z": "1f19bac8b043ee2d",
+        "name": "60%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "60",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 320,
+        "wires": [
+            [
+                "9e711b4f669d4381"
+            ]
+        ]
+    },
+    {
+        "id": "59560e0cd85ba077",
+        "type": "change",
+        "z": "1f19bac8b043ee2d",
+        "name": "100%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "100",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 360,
+        "wires": [
+            [
+                "9e711b4f669d4381"
+            ]
+        ]
+    },
+    {
+        "id": "0d8d881b4d5c89cd",
+        "type": "change",
+        "z": "1f19bac8b043ee2d",
+        "name": "5%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "9e711b4f669d4381"
+            ]
+        ]
     },
     {
         "id": "4b875cd4ba035f42",
@@ -148,7 +786,7 @@
         "id": "fa823e60bc086272",
         "type": "change",
         "z": "020fba9d79e1b386",
-        "name": "Set badkamer context",
+        "name": "Set flow.badkamer",
         "rules": [
             {
                 "t": "set",
@@ -163,7 +801,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 240,
+        "x": 230,
         "y": 80,
         "wires": [
             []
@@ -173,7 +811,7 @@
         "id": "4470e8f83472ea72",
         "type": "change",
         "z": "020fba9d79e1b386",
-        "name": "Set slaapkamer context",
+        "name": "Set flow.slaapkamer",
         "rules": [
             {
                 "t": "set",
@@ -188,7 +826,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 250,
+        "x": 240,
         "y": 20,
         "wires": [
             []
@@ -310,333 +948,6 @@
         "headers": {},
         "x": 590,
         "y": 260,
-        "wires": []
-    },
-    {
-        "id": "c180992cc3e8ae96",
-        "type": "mqtt out",
-        "z": "1f19bac8b043ee2d",
-        "name": "hue2mqtt/light/id/set",
-        "topic": "hue2mqtt/light/id/set",
-        "qos": "0",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "85ef96f3bdcd5a9a",
-        "x": 1130,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "98ddcf40f7257cd6",
-        "type": "mqtt in",
-        "z": "1f19bac8b043ee2d",
-        "name": "",
-        "topic": "zigbee2mqtt/id",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "85ef96f3bdcd5a9a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 260,
-        "y": 400,
-        "wires": [
-            [
-                "460db21e6e98a569"
-            ]
-        ]
-    },
-    {
-        "id": "422e34b2a4c54a5c",
-        "type": "mqtt in",
-        "z": "1f19bac8b043ee2d",
-        "name": "",
-        "topic": "zigbee2mqtt/id",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "85ef96f3bdcd5a9a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 260,
-        "y": 500,
-        "wires": [
-            [
-                "47ca9ef002ba415b"
-            ]
-        ]
-    },
-    {
-        "id": "460db21e6e98a569",
-        "type": "json",
-        "z": "1f19bac8b043ee2d",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 470,
-        "y": 400,
-        "wires": [
-            [
-                "813e73181c230564",
-                "33f865043ac8337d",
-                "a020eded93e33558",
-                "d375d04192e82f5c"
-            ]
-        ]
-    },
-    {
-        "id": "813e73181c230564",
-        "type": "function",
-        "z": "1f19bac8b043ee2d",
-        "name": "humidity > 60 && diff slaapkamer > 10",
-        "func": "slaapkamer = flow.get(\"slaapkamer\");\n\nif(msg.payload.humidity > 60) {\n    let diff = msg.payload.humidity - slaapkamer.humidity\n    if(diff > 10) {\n        value = 100 * (254 / 100)\n        msg.payload = '{\"bri\": '+ value + '}'\n        return msg;\n    }\n}\n\nvalue = 1\nmsg.payload = '{\"bri\": '+ value + '}'\n  \n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 400,
-        "wires": [
-            [
-                "c180992cc3e8ae96"
-            ]
-        ]
-    },
-    {
-        "id": "47ca9ef002ba415b",
-        "type": "json",
-        "z": "1f19bac8b043ee2d",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 470,
-        "y": 500,
-        "wires": [
-            [
-                "5b93e81aa1916d56",
-                "a2d85120d7dd42df"
-            ]
-        ]
-    },
-    {
-        "id": "383c90171fc2e5cf",
-        "type": "comment",
-        "z": "1f19bac8b043ee2d",
-        "name": "Badkamer",
-        "info": "",
-        "x": 180,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "6c60d2a5812920b0",
-        "type": "comment",
-        "z": "1f19bac8b043ee2d",
-        "name": "Slaapkamer",
-        "info": "",
-        "x": 190,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "33f865043ac8337d",
-        "type": "debug",
-        "z": "1f19bac8b043ee2d",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "86360124a58a4669",
-        "type": "comment",
-        "z": "1f19bac8b043ee2d",
-        "name": "Mechanische ventilatie",
-        "info": "",
-        "x": 1060,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "e6222fd4bf64b0de",
-        "type": "inject",
-        "z": "1f19bac8b043ee2d",
-        "name": "inject humidity 58",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"humidity\":58.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
-        "payloadType": "str",
-        "x": 220,
-        "y": 300,
-        "wires": [
-            [
-                "460db21e6e98a569"
-            ]
-        ]
-    },
-    {
-        "id": "69651d617b658019",
-        "type": "inject",
-        "z": "1f19bac8b043ee2d",
-        "name": "inject humidity 57",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"humidity\":57.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
-        "payloadType": "str",
-        "x": 220,
-        "y": 580,
-        "wires": [
-            [
-                "47ca9ef002ba415b"
-            ]
-        ]
-    },
-    {
-        "id": "5b93e81aa1916d56",
-        "type": "change",
-        "z": "1f19bac8b043ee2d",
-        "name": "Set slaapkamer context",
-        "rules": [
-            {
-                "t": "set",
-                "p": "slaapkamer",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 500,
-        "wires": [
-            [
-                "33f865043ac8337d"
-            ]
-        ]
-    },
-    {
-        "id": "057cac706f1c4a09",
-        "type": "inject",
-        "z": "1f19bac8b043ee2d",
-        "name": "inject humidity 88",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"humidity\":88.72,\"linkquality\":63,\"pressure\":1017.9,\"temperature\":17.6,\"voltage\":3245}",
-        "payloadType": "str",
-        "x": 220,
-        "y": 260,
-        "wires": [
-            [
-                "460db21e6e98a569"
-            ]
-        ]
-    },
-    {
-        "id": "a020eded93e33558",
-        "type": "change",
-        "z": "1f19bac8b043ee2d",
-        "name": "Set badkamer context",
-        "rules": [
-            {
-                "t": "set",
-                "p": "badkamer",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a2d85120d7dd42df",
-        "type": "link out",
-        "z": "1f19bac8b043ee2d",
-        "name": "slaapkamer",
-        "mode": "link",
-        "links": [
-            "081fdefc811d53b7"
-        ],
-        "x": 595,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "d375d04192e82f5c",
-        "type": "link out",
-        "z": "1f19bac8b043ee2d",
-        "name": "badkamer",
-        "mode": "link",
-        "links": [
-            "eed07ac1b4e7ee5d"
-        ],
-        "x": 595,
-        "y": 460,
         "wires": []
     }
 ]
